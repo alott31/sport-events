@@ -30,7 +30,7 @@ user_info (user_id*, username, password, email)
                     3NF - all FD rely on key
                     4NF - no MVDs****
 sport_events (event_id*, creator_id, sport_name, city, time, date, difficulty_level, players_needed)
-  creator_id references the user in the user_info table that created the event
+  Foreign key: creator_id user_info references user_id
  
  **** The join event table manages user requests to join different events 
       Entity: join request
@@ -45,6 +45,6 @@ sport_events (event_id*, creator_id, sport_name, city, time, date, difficulty_le
                      3NF - all FD's rely on key
                      4NF - no MVDs**** 
 join_event (request_id*, event_id, user_id, accepted)
-  event_id references the event the user wants to join
-  user_id is the id number of the user trying to join the event
+  Foreign Key: event_id sport_events references event_id
+  Foreign Key: user_id user_info references user_id
   
